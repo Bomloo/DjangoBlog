@@ -15,18 +15,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+# add include to include url from other url files
+from django.urls import path, include
 # . means in same directory
 # we import views to access the function for handling a url call
 from . import views
 
 urlpatterns = [
-    # ^ means anything after must be beginning of string
-    # $ means anything before will be the end
     path("admin/", admin.site.urls),
-    # begin with about/ and end
+    path("articles/", include("articles.urls")),
     # when someone requests the about url, we fire the about function from views
     path("about/", views.about),
-    # blank after address.com/, begin and end with nothing
+    # when blank we fire the homepage function from views
     path("", views.homepage),
 ]
