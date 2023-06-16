@@ -22,6 +22,9 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
+    # aarlin
+    # aarlin.business@gmail.com
+    # aaRlinisbusy360
     path("admin/", admin.site.urls),
     path("articles/", include("articles.urls")),
     # when someone requests the about url, we fire the about function from views

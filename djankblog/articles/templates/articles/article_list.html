@@ -6,5 +6,14 @@
   </head>
   <body>
     <h1>articles here</h1>
+    <div class = "articles">
+      <!-- for loop -->
+      {% for article in articles %}
+        <div class = "articles">
+          <h2><a href="#">{{article.title}}</a></h2>
+          <p>{{article.body}}</p>
+          <p>{{article.date}}</p>
+        <div>
+      {% endfor %}
   </body>
 </html>
