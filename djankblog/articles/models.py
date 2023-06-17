@@ -34,3 +34,6 @@ class Article(models.Model):
     # in this case, it is self.title
     def __str__(self):
         return self.title
+
+    def preview(self):
+        return self.body[:50] + "..."

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -111,8 +112,19 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
+# we add /static/____ to our url to access css or js or whatever files
 
 STATIC_URL = "static/"
+
+# Since we are debugging, we need to tell django the paths to our static files
+STATICFILES_DIRS = (
+# base_dir is inbuilt, for this project it is the first djankblog folder
+# (not djankblog app folder)
+# second string will be whatever folder after base dir
+# when we call /static/, we will be calling base/assets automatically
+
+os.path.join(BASE_DIR, "assets"),
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

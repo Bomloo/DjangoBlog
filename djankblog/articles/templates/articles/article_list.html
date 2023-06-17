@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Articles</title>
-  </head>
-  <body>
-    <h1>articles here</h1>
+<!-- django will know we want to extend from base_layout template -->
+{% extends 'base_layout.html' %}
+<!-- this is a block called content -->
+{% block content%}
+    <h1>Articles Here</h1>
     <div class = "articles">
       <!-- for loop -->
       {% for article in articles %}
         <div class = "articles">
-          <h2><a href="#">{{article.title}}</a></h2>
-          <p>{{article.body}}</p>
+          <!-- when we click on article title, we will call the url called details
+          when we call details we will pass article.slug into a parameter called slug-->
+          <h2><a href="{% url "articles:details" slug=article.slug %}">{{article.title}}</a></h2>
+          <p>{{article.preview}}</p>
           <p>{{article.date}}</p>
-        <div>
+        </div>
       {% endfor %}
-  </body>
-</html>
+    </div>
+{% endblock %}

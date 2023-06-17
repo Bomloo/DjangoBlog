@@ -1,0 +1,27 @@
+<!-- will load static files from folder called static as static
+in settings, we have configured static folder to lead to root/assets
+we can avoid hard coding styles this way -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Articles</title>
+    <!-- from the folder represented by 'static' (root/assets)
+    we want to load the file called styles.css -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+  </head>
+  <body>
+    <!-- everything unique to each page goes here -->
+    <div class="wrapper">
+      <!-- django will read you want to call a url called list
+      when you click on this button called Articles / image-->
+      <h1><a href="{% url "articles:list" %}"><img src = "{% static "Wooper.png" %}"></a></h1>
+      <!-- we want a block called content to go here
+      if we encounter in an add on template a block called content
+      we will add it here -->
+      {% block content %}
+      {% endblock %}
+  </body>
+</html>

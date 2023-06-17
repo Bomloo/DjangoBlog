@@ -20,6 +20,7 @@ from django.urls import path, include
 # . means in same directory
 # we import views to access the function for handling a url call
 from . import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     # aarlin
@@ -32,3 +33,9 @@ urlpatterns = [
     # when blank we fire the homepage function from views
     path("", views.homepage),
 ]
+
+# we only use django to handle static files in debug model
+# (in deployment we should have something like aws handle static files)
+# will check if we are in debug mode and append the urls to tell us how to serve up
+# our static files
+urlpatterns += staticfiles_urlpatterns()
