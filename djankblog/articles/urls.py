@@ -3,6 +3,7 @@ from django.urls import path
 # we import views to access the function for handling a url call
 from . import views
 
+# we use this to name space url path names
 app_name = "articles"
 
 urlpatterns = [

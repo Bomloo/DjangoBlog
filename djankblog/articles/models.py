@@ -27,7 +27,8 @@ class Article(models.Model):
     # will give date that article is created, automaticly dates at time of
     # creation
     date = models.DateTimeField(auto_now_add = True)
-    # add in thumbnail later
+    # thumbnail for articles, we will use a default if there is none
+    thumb = models.ImageField(default = "default.png", blank = True)
     # add author later
 
     # when Article object instance is called, represented in string format

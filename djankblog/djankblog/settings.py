@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "articles"
+    "articles",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -121,10 +122,14 @@ STATICFILES_DIRS = (
 # base_dir is inbuilt, for this project it is the first djankblog folder
 # (not djankblog app folder)
 # second string will be whatever folder after base dir
-# when we call /static/, we will be calling base/assets automatically
+# when we call /static/, we will be calling base/assets automatic
 
 os.path.join(BASE_DIR, "assets"),
 )
+
+MEDIA_URL = "/media/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
